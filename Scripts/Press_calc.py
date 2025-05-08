@@ -15,7 +15,25 @@ def remove_linear_trend(FE, TARGS):
 
     return FE_corrected, P_lin
 
-def calc_extrusion_pressure_from_barrier(FE, TARGS, minima_idx, maxima_idx, pore_radius_nm=1.5):
+def calc_intrusion_pressure_from_barrier(FE, TARGS, minima_idx, maxima_idx):
+    # Last minimum and the last maximum
+    try:
+        last_min_idx = minima_idx[0]
+        last_max_idx = maxima_idx[0]
+    except:
+        return None
+
+    FE_min_last = FE[last_min_idx]
+    FE_max_last = FE[last_max_idx]
+
+    deltaG_barrier = FE_max_last - FE_min_last  # in kBT
+
+    # Estimate delta_V
+    deltaV = TARGS[last_max_idx] - TARGS[last_min_idx] # in nm^3
+    Pint = deltaG_barrier / deltaV * 4.14  # in MPa
+    return Pint
+
+def calc_extrusion_pressure_from_barrier(FE, TARGS, minima_idx, maxima_idx):
     # Last minimum and the last maximum
     try:
         last_min_idx = minima_idx[-1]
@@ -26,13 +44,11 @@ def calc_extrusion_pressure_from_barrier(FE, TARGS, minima_idx, maxima_idx, pore
     FE_min_last = FE[last_min_idx]
     FE_max_last = FE[last_max_idx]
 
-    deltaG_barrier = FE_max_last - FE_min_last  # in kBT
+    deltaG_barrier = - (FE_max_last - FE_min_last)  # in kBT
 
     # Estimate delta_V
     deltaV = TARGS[last_min_idx] - TARGS[last_max_idx] # in nm^3
     Pext = deltaG_barrier / deltaV * 4.14  # in MPa
-
-    print(f"Extrusion pressure: {Pext:.2e} MPa")
     return Pext
 
 
@@ -110,7 +126,7 @@ if __name__ == "__main__":
     from scipy.signal import savgol_filter  # Import Savitzky-Golay filter
 
     # ----- Load Data -----
-    ROOT = "/scratch/rasera"
+    ROOT = "/Users/frasera/Ricerca"
     SYS = "C8,1.2"
     INC = "_inc_50"
     KAPPA = 0.01
@@ -156,19 +172,22 @@ if __name__ == "__main__":
             # ----- Calculate Intrusion and Extrusion Pressures -----
             PINT, icoords_pint, ipoints_pint, iFE_pint = calc_intrusion_pressure_from_inflection(inflection_points, inflection_coords, inflection_FE)
             PEXT, icoords_pext, ipoints_pext, iFE_pext = calc_extrusion_pressure_from_inflection(inflection_points, inflection_coords, inflection_FE)
+            PINT_barrier = calc_intrusion_pressure_from_barrier(FE_corrected_smooth, TARGS, minima_idx, maxima_idx)
             PEXT_barrier = calc_extrusion_pressure_from_barrier(FE_corrected_smooth, TARGS, minima_idx, maxima_idx)
 
             #plot_points(TARGS, FE_corrected, FE_corrected_smooth, dFE, dFE_smooth, inflection_coords, inflection_FE, inflection_points)
 
+            print("#-----------------")
             print(f"{MOL} ({GAS}, NGAS={NGAS}):")
-            print(f"Pint: {PINT} / Pext: {PEXT}")
+            print(f"Pint (inflection): {PINT} / Pext (inflection): {PEXT}")
+            print(f"Pint (barrier): {PINT_barrier} / Pext (barrier): {PEXT_barrier}")
 
             try:
                 Delta_FE = FE_corrected_smooth[maxima_idx[-1]] - FE_corrected_smooth[minima_idx[-1]]
             except:
                 Delta_FE = None
 
-            Pint_Pext_list.append([MOL.replace("_"," "), NGAS, PINT, PEXT, PEXT_barrier, NGAS/(2*20**3), Delta_FE])
+            Pint_Pext_list.append([MOL.replace("_"," "), NGAS, PINT, PEXT, PINT_barrier, PEXT_barrier, NGAS/(2*20**3), Delta_FE])
 
             df = pd.DataFrame({'coord':TARGS,
                             'FE':FE_corrected_smooth, 
@@ -198,7 +217,8 @@ if __name__ == "__main__":
             ext_inf_points.append(df_ext_inf_pts)
 
     # Save all dataframes to CSV
-    df_Pint_Pext = pd.DataFrame(Pint_Pext_list, columns=['mol','ngas','Pint','Pext_inflection','Pext_barrier','C','Delta_FE'])
+    df_Pint_Pext = pd.DataFrame(Pint_Pext_list, columns=['mol','ngas','Pint_inflection','Pext_inflection',
+                                                         'Pint_barrier','Pext_barrier','C','Delta_FE'])
     df_Pint_Pext.to_csv(f"{ROOT}/FreeEnergy/outfiles/Pint_Pext_all_{KAPPA}_{SYS}.csv", index=False)
 
     FEs = pd.concat(dfs)
