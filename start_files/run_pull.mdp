@@ -1,0 +1,93 @@
+
+; Run parameters
+integrator              = md        ; leap-frog integrator
+nsteps                  = 250000
+dt                      = 0.02     ; 1 fs
+
+; Output control
+nstxout                 =        ; save coordinates every 1.0 ps
+nstvout                 =        ; save velocities every 1.0 ps
+nstlog                  =        ; update log file every 1.0 ps
+nstenergy               =        ; save energies every 1.0 ps
+nstxout-compressed	    = 10000
+compressed-x-precision   = 1000
+compressed-x-grps        =
+
+
+; Nonbonded settings
+cutoff-scheme            = Verlet
+nstlist                  = 20
+ns_type                  = grid
+pbc                      = xyz
+verlet-buffer-tolerance  = -1
+rlist                    = 1.3
+
+coulombtype              = reaction-field
+rcoulomb                 = 1.1
+epsilon_r                = 15   ; 2.5 (with polarizable water)
+epsilon_rf               = 0
+vdw_type                 = cutoff
+vdw-modifier             = Potential-shift-verlet
+rvdw                     = 1.1
+
+; Temperature coupling is on
+tcoupl                  = V-rescale              ; modified Berendsen thermostat
+tc-grps                 = System
+tau_t                   = 0.1     ; time constant, in ps
+ref_t                   = 298     ; reference temperature, one for each group, in K
+
+; Pressure coupling is off
+pcoupl                  = no        ; no pressure coupling in NVT
+
+; Velocity generation
+gen_vel                 = yes       ; assign velocities from Maxwell distribution
+gen_temp                = 298       ; temperature for Maxwell distribution
+gen_seed                = -1        ; generate a random seed
+
+
+freezegrps              = PIS PIS1 BULK LAY SI
+freezedim               = Y Y N Y Y N Y Y Y Y Y Y Y Y Y
+
+comm-mode               = none
+nstcomm                 = 100
+comm-grps               =
+
+
+; MARTINI and CONSTRAINTS
+; for ring systems and stiff bonds constraints are defined
+; which are best handled using Lincs.
+constraints              = none
+constraint_algorithm     = Lincs
+
+
+;PULLING
+pull                    = yes
+pull-ngroups            = 2
+pull-ncoords            = 2
+
+pull-coord1-geometry    = direction-periodic
+pull-coord1-type        = constant-force
+pull-coord2-geometry    = direction-periodic
+pull-coord2-type        = constant-force
+
+pull-coord1-groups	= 2 1
+pull-coord2-groups	= 1 2
+pull-group1-name        = PIS
+pull-group2-name        = PIS1
+
+pull-coord1-vec         = 0 0 -1
+pull-coord1-k           = 182.01532986343926
+pull-coord1-dim         = N N Y
+
+pull-coord2-vec         = 0 0 1
+pull-coord2-k           = 182.01532986343926
+pull-coord2-dim         = N N Y
+
+pull-group1-pbcatom     = 0
+pull-group2-pbcatom     = 0
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+mol,natoms,nwater,ngas,coord
+Nitrogen,1,1971,100,10500
+Nitrogen,1,2012,100,10550
+Nitrogen,1,1999,100,10600
+Nitrogen,1,2045,100,10650
+Nitrogen,0,2072,100,10700
+Nitrogen,0,2115,100,10750
+Nitrogen,1,2150,100,10800
+Nitrogen,1,2162,100,10850
+Nitrogen,0,2153,100,10900
+Nitrogen,2,2196,100,10950
+Nitrogen,3,2219,100,11000

@@ -1,0 +1,41 @@
+T,mol,C,Pressure_Type,Pressure
+20,Ar,,Pint_norm,
+20,Diethyl ether,0.558965,Pint_norm,3.8733333333333304
+20,Ethylene,0.420741,Pint_norm,2.655000000000003
+20,Nitrogen,0.000408,Pint_norm,0.31235294117647094
+20,Xenon,0.0275,Pint_norm,1.163749999999999
+25,Ar,,Pint_norm,
+25,Diethyl ether,0.558965,Pint_norm,3.8733333333333304
+25,Ethylene,0.420741,Pint_norm,
+25,Nitrogen,0.000408,Pint_norm,0.32999999999999996
+25,Xenon,0.0275,Pint_norm,0.7887500000000003
+50,Ar,,Pint_norm,
+50,Diethyl ether,0.558965,Pint_norm,5.2066666666666706
+50,Ethylene,0.420741,Pint_norm,
+50,Nitrogen,0.000408,Pint_norm,0.6947058823529407
+50,Xenon,0.0275,Pint_norm,0.9137499999999998
+80,Ar,,Pint_norm,
+80,Diethyl ether,0.558965,Pint_norm,9.206666666666669
+80,Ethylene,0.420741,Pint_norm,
+80,Nitrogen,0.000408,Pint_norm,0.7241176470588234
+80,Xenon,0.0275,Pint_norm,2.10125
+20,Ar,,Pext_norm,
+20,Diethyl ether,0.558965,Pext_norm,-1.7333333333333334
+20,Ethylene,0.420741,Pext_norm,-0.4999999999999999
+20,Nitrogen,0.000408,Pext_norm,-0.017647058823529363
+20,Xenon,0.0275,Pext_norm,-0.4124999999999999
+25,Ar,,Pext_norm,
+25,Diethyl ether,0.558965,Pext_norm,-2.6
+25,Ethylene,0.420741,Pext_norm,
+25,Nitrogen,0.000408,Pext_norm,0.005882352941176476
+25,Xenon,0.0275,Pext_norm,-0.3624999999999999
+50,Ar,,Pext_norm,
+50,Diethyl ether,0.558965,Pext_norm,-2.933333333333334
+50,Ethylene,0.420741,Pext_norm,
+50,Nitrogen,0.000408,Pext_norm,-0.1029411764705882
+50,Xenon,0.0275,Pext_norm,-0.55
+80,Ar,,Pext_norm,
+80,Diethyl ether,0.558965,Pext_norm,-5.933333333333334
+80,Ethylene,0.420741,Pext_norm,
+80,Nitrogen,0.000408,Pext_norm,-0.3176470588235294
+80,Xenon,0.0275,Pext_norm,-1.1125

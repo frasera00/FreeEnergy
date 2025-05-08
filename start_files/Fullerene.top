@@ -1,0 +1,9 @@
+#include "martini_v2.3_CNP.itp"
+#include "F16.itp"
+
+[system]
+This is an auto generated system
+
+[molecules]
+;moleculetype	count
+F16	1

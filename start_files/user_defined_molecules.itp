@@ -1,0 +1,92 @@
+;;;;; Martini 3 - Database of solvents
+;;;;;  
+;;;;; File updated on 2021-03-29
+;;;;;
+;;;;; Version: 3.0.0_v1
+;;;;;                                                                                     
+;;;;; This collection contains the models included as part of the Martini 3 publication: 
+;;;;;   PCT Souza, et al., Nat. Methods, 2021. DOI: 10.1038/s41592-021-01098-3 
+
+;;;;;; WATER (representing 4 molecules)
+
+[ moleculetype ]
+; molname  	nrexcl
+  NI2  	    	1
+
+[ atoms ]
+;id     type    resnr   residu  atom    cgnr    charge
+ 1      TN6       1       NI2    TN6      1       0
+
+[ moleculetype ]
+; molname  	nrexcl
+  SN2  	    	1
+
+[ atoms ]
+;id     type    resnr   residu  atom    cgnr    charge
+ 1      SN2       1       SN2    SN2      1       0
+
+[ moleculetype ]
+; molname  	nrexcl
+  SX1  	    	1
+
+[ atoms ]
+;id     type    resnr   residu  atom    cgnr    charge
+ 1      SX1       1       SX1    SX1      1       0
+
+[ moleculetype ]
+; molname  	nrexcl
+  SC2  	    	1
+
+[ atoms ]
+;id     type    resnr   residu  atom    cgnr    charge
+ 1      SC2       1       SC2    SC2      1       0
+
+
+[ moleculetype ]
+; molname  	nrexcl
+  TC4  	    	1
+
+[ atoms ]
+;id     type    resnr   residu  atom    cgnr    charge
+ 1      TC4       1       TC4    TC4      1       0
+
+[ moleculetype ]
+; molname  	nrexcl
+  SC4  	    	1
+
+[ atoms ]
+;id     type    resnr   residu  atom    cgnr    charge
+ 1      SC4       1       SC4    SC4      1       0
+
+
+[ moleculetype ]
+; molname  	nrexcl
+  XEN  	    	1
+
+[ atoms ]
+;id     type    resnr   residu  atom    cgnr    charge
+ 1       N2       1      XEN     N2      1       0
+
+[ moleculetype ]
+; molname  	nrexcl
+  OXY  	    	1
+
+[ atoms ]
+;id     type    resnr   residu  atom    cgnr    charge
+ 1      TC3       1      OXY     TC3      1       0
+ 
+ [ moleculetype ]
+; molname  	nrexcl
+  ETY  	    	1
+
+[ atoms ]
+;id     type    resnr   residu  atom    cgnr    charge
+ 1      C4        1     ETY       C4      1       0
+
+  [ moleculetype ]
+; molname  	nrexcl
+  TC1  	    	1
+
+[ atoms ]
+;id     type    resnr   residu  atom    cgnr    charge
+ 1      TC1        1     TC1       TC1      1       0

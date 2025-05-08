@@ -1,0 +1,24 @@
+# Read OW group from gromacs index file
+WATER_GAS: GROUP NDX_FILE=index.ndx NDX_GROUP=WATER_GAS
+
+# Define a fake atom at a specific position, e.g., (X, Y, Z)
+fakeatom: FIXEDATOM AT=10.07,9.96,53.63
+fa: GROUP ATOMS=fakeatom
+
+# Define a coordination number (CN) collective variable for OW atoms around the fake atom
+nW: COORDINATION GROUPA=fa GROUPB=WATER_GAS R_0=10.5 NN=6 MM=12 NOPBC
+
+#NLIST NL_CUTOFF=13.5 NL_STRIDE=10
+
+movrest: MOVINGRESTRAINT ...
+    ARG=nW
+    STEP0=0 AT0=10800 KAPPA0=0.01
+    STEP1=50000 AT1=10800
+    STEP2=550000 AT2=10800
+...
+ 
+# Print the coordination number and the restraint potential to a file for analysis
+PRINT ARG=nW,movrest.bias FILE=cv.dat
+ 
+# Final STEP value: 550000
+# Final AT value: 10800

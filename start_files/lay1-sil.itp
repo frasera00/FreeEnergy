@@ -1,0 +1,32 @@
+#include "user_defined_molecules.itp"
+
+[ moleculetype ]
+; molname 	nrexcl
+  SIL             1
+
+[ atoms ]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge    mass
+    1      C2       1     SIL      C2     1      0.0     72.0
+    2      C1       2     SIL      C1     2      0.0     72.0
+    3      N1       3      SI    N1L1     3      0.0     72.0
+
+[ bonds ]
+; id1    id2   funType   b0    Kb
+    1     2     1     0.470  3800.000
+    2     3     1     0.470  3800.000
+
+[ moleculetype ]
+; molname 	nrexcl
+  LAY            1
+
+[ atoms ]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge    mass
+    1     N1       1     LAY     N1L     1      0.0     72.0
+
+[ moleculetype ]
+; molname 	nrexcl
+  BULK            1
+
+[ atoms ]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge    mass
+    1     N1       1    BULK     N1B     1      0.0     72.0

@@ -1,0 +1,18 @@
+#include "martini_v3.0.0_N1Lay.itp"
+#include "martini_v3.0.0_solvents_v1.itp"
+#include "lay1-sil.itp"
+#include "surf.itp"
+#include "Fullerene.itp"
+
+[ system ]
+System
+
+[ molecules ]
+  PIS     10032
+  SIL       411
+  LAY      1389
+ BULK     70695
+ PIS1     10032
+TW              61568
+SW              61242
+W               60854

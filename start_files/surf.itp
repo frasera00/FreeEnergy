@@ -1,0 +1,15 @@
+[ moleculetype ]
+; molname 	nrexcl
+  PIS            1
+
+[ atoms ]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge    mass
+    1     C1P       1    PIS     C1P     1      0.0     72.0
+    
+[ moleculetype ]
+; molname 	nrexcl
+  PIS1            1
+
+[ atoms ]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge    mass
+    1     C1P       1    PIS1     C1P     1      0.0     72.0

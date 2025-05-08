@@ -1,0 +1,10 @@
+#Sim files
+Simulations
+Scaling_test
+
+# DS_Store
+*DS_Store*
+
+#bash scripts
+*.sh
+

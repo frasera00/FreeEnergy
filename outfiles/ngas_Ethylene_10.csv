@@ -1,0 +1,8 @@
+mol,natoms,nwater,ngas,coord
+Ethylene,0,1967,10,10500
+Ethylene,1,2007,10,10550
+Ethylene,0,2053,10,10600
+Ethylene,1,2043,10,10650
+Ethylene,3,2075,10,10700
+Ethylene,0,2112,10,10750
+Ethylene,0,2120,10,10800

@@ -1,0 +1,7 @@
+T,mol,C,Pressure_Type,Pressure,mol_chem
+25,Diethyl ether,0.558965,Pint_norm,3.87,(C$_2$H$_5$)$_2$O
+25,Xenon,0.0275,Pint_norm,0.79,Xe
+25,Nitrogen,0.000408,Pint_norm,0.33,N$_2$
+25,Diethyl ether,0.558965,Pext_norm,-2.6,(C$_2$H$_5$)$_2$O
+25,Xenon,0.0275,Pext_norm,-0.36,Xe
+25,Nitrogen,0.000408,Pext_norm,0.01,N$_2$
